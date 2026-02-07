@@ -1,0 +1,42 @@
+body {
+    font-family: Arial, sans-serif;
+    color: #ffffff;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+.instructions {
+    margin-top: 50px;
+    max-width: 100vh;
+    margin: 15vh auto;
+    padding: 4vh;
+    background-color: #555;
+    border-radius: 0.5vh;
+    box-shadow: 1px 1px 1px 45px rgb(255, 255, 255,0.1);
+    text-align: start;
+}
+
+.button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.button:hover {
+    background-color: #0055ff;
+}
+
+p {
+    margin-bottom: 20px;
+}
+
+ol, li{
+    font-size: 3vh;
+    margin-bottom: 1.5vh;
+}

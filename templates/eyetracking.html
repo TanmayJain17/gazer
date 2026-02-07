@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Cache-control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <title>Gazer - Eye Tracking</title>
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="../static/css/eyetracking.css">
+    <link href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css" rel="stylesheet">
+    
+    <!-- Socket.IO -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.5.3/socket.io.js"></script>
+    
+    <!-- Material Components -->
+    <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
+</head>
+
+<body style="margin: 0;">
+    <!-- Calibration Canvas (full screen overlay) -->
+    <canvas id="calibrationCanvas"></canvas>
+    
+    <!-- Main Content -->
+    <div id="body">
+        <h1 id="heading">Gazer: Real-Time Eye Tracking</h1>
+        
+        <section id="demos" class="invisible">
+            <h2>Webcam Eye Tracking</h2>
+            <p>
+                Position your face in front of the webcam for real-time eye tracking.
+                <br>
+                Click <strong>Enable Webcam</strong> below and grant camera access when prompted.
+            </p>
+
+            <div id="liveView" class="videoView">
+                <button id="webcamButton" class="mdc-button mdc-button--raised">
+                    <span class="mdc-button__ripple"></span>
+                    <span class="mdc-button__label">ENABLE WEBCAM</span>
+                </button>
+                
+                <div style="position: relative;">
+                    <video id="webcam" autoplay playsinline></video>
+                    <canvas 
+                        class="output_canvas" 
+                        id="output_canvas"
+                        style="position: absolute; left: 0; top: 0;">
+                    </canvas>
+                </div>
+            </div>
+            
+            <button id="calibrationButton" class="mdc-button mdc-button--raised">
+                <span class="mdc-button__ripple"></span>
+                <span class="mdc-button__label">START CALIBRATION</span>
+            </button>
+        </section>
+        
+        <!-- Blink Detection Display -->
+        <div class="blend-shapes">
+            <ul class="blend-shapes-list" id="video-blend-shapes"></ul>
+        </div>
+        
+        <!-- Loading Indicator -->
+        <div id="loading">
+            <p>Training model, please wait...</p>
+        </div>
+    </div>
+    
+    <!-- Eye Tracking Script (ES Module) -->
+    <script type="module" src="../static/js/eyetracking.js"></script>
+</body>
+</html>

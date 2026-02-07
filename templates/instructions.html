@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gazer - Eye Tracking Setup</title>
+    <link rel="stylesheet" href="../static/css/style.css">
+</head>
+<body>
+    <div class="instructions">
+        <h1>🎯 Gazer: Eye Tracking Calibration</h1>
+        
+        <p>Welcome to Gazer! Follow these instructions for optimal calibration:</p>
+        
+        <ol>
+            <li>
+                <strong>Position your camera</strong> at eye level, about arm's length away.
+            </li>
+            <li>
+                <strong>Ensure good lighting</strong> - avoid backlighting and ensure your face is well-lit.
+            </li>
+            <li>
+                <strong>Keep your head steady</strong> during calibration. Only move your eyes to follow the dots.
+            </li>
+            <li>
+                <strong>Click "Enable Webcam"</strong> and allow camera access when prompted.
+            </li>
+            <li>
+                <strong>Click "Start Calibration"</strong> and follow the moving dots with your eyes.
+            </li>
+            <li>
+                After calibration, a <strong>validation phase</strong> will fine-tune accuracy.
+            </li>
+        </ol>
+        
+        <div class="tips">
+            <h3>💡 Tips for Best Results</h3>
+            <ul>
+                <li>Remove glasses if they cause reflections</li>
+                <li>Avoid extreme head angles</li>
+                <li>Blink naturally - the system detects and handles blinks</li>
+                <li>If accuracy is below 65%, recalibrate</li>
+            </ul>
+        </div>
+        
+        <button class="button" onclick="startWebcam()">
+            Start Eye Tracking →
+        </button>
+    </div>
+    
+    <script>
+        function startWebcam() {
+            window.location.href = '/eyetracking';
+        }
+    </script>
+</body>
+</html>
