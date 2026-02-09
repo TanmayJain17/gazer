@@ -13,6 +13,7 @@ A cost-effective, accessible eye-tracking solution using standard webcams and ma
 
 > 📄 **Research Paper**: This project is based on our IEEE ICCCNT 2024 publication:  
 > *"Real-Time Webcam-Based Eye Tracking for Gaze Estimation: Applications and Innovations"*
+> 🔗 **[Read on IEEE Xplore](https://doi.org/10.1109/ICCCNT61001.2024.10724037)**
 
 ---
 
