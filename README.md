@@ -41,15 +41,15 @@ A cost-effective, accessible eye-tracking solution using standard webcams and ma
                         │
                         ▼
 ┌───────────────────────────────────────────────────────────────────┐
-│                     ML Pipeline                                    │
-│  ┌─────────────┐    ┌─────────────┐    ┌─────────────────────┐   │
-│  │ Pupil SVR   │───▶│  Stacking   │───▶│  Weighted Average   │   │
-│  │ Base Model  │    │  (Linear)   │    │  (1.5×pupil+0.5×head)│   │
-│  └─────────────┘    └─────────────┘    └──────────┬──────────┘   │
-│  ┌─────────────┐    ┌─────────────┐               │              │
-│  │  Head SVR   │───▶│  Stacking   │───────────────┘              │
-│  │ Base Model  │    │  (Linear)   │                              │
-│  └─────────────┘    └─────────────┘                              │
+│                     ML Pipeline                                   │
+│  ┌─────────────┐    ┌─────────────┐    ┌─────────────────────┐    │
+│  │ Pupil SVR   │───▶│  Stacking   │───▶│  Weighted Average   │    │
+│  │ Base Model  │    │  (Linear)   │    │ (1.5×pupil+0.5×head)│    │
+│  └─────────────┘    └─────────────┘    └──────────┬──────────┘    │
+│  ┌─────────────┐    ┌─────────────┐               │               │
+│  │  Head SVR   │───▶│  Stacking   │───────────────┘               │
+│  │ Base Model  │    │  (Linear)   │                               │
+│  └─────────────┘    └─────────────┘                               │
 └───────────────────────────────────────────────────────────────────┘
                         │
                         ▼
@@ -133,50 +133,23 @@ python run.py
 
 ```
 gazer/
-├── app/
-│   ├── __init__.py
-│   ├── config.py              # Centralized configuration
-│   ├── main.py                # Flask application factory
-│   ├── models/
-│   │   ├── gaze_estimator.py  # SVR stacking model
-│   │   └── tracker.py         # Session state management
-│   └── routes/
-│       └── websocket_handlers.py  # Socket.IO events
+├── app.py                  # ← New (your original logic, cleaned up)
+├── run.py                  # ← Updated
+├── requirements.txt
+├── README.md
+├── LICENSE
+├── .gitignore
 ├── static/
 │   ├── css/
+│   │   ├── eyetracking.css
+│   │   └── style.css
 │   └── js/
-│       └── eyetracking.js     # MediaPipe + calibration UI
+│       └── eyetracking.js  # ← Original file
 ├── templates/
-│   ├── instructions.html
-│   └── eyetracking.html
-├── tests/
-│   └── test_gaze_estimator.py
-├── docs/
-│   └── images/
-├── run.py                     # Entry point
-├── requirements.txt
-├── pyproject.toml
-└── README.md
-```
-
----
-
-## ⚙️ Configuration
-
-Configure via environment variables:
-
-| Variable | Default | Description |
-|----------|---------|-------------|
-| `GAZER_SERVER_PORT` | `3226` | Server port |
-| `GAZER_SERVER_HOST` | `0.0.0.0` | Server host |
-| `GAZER_DEBUG` | `true` | Debug mode |
-| `GAZER_MODEL_SVR_C` | `150` | SVR regularization parameter |
-| `GAZER_MODEL_PUPIL_WEIGHT` | `1.5` | Weight for pupil predictions |
-| `GAZER_MODEL_HEAD_WEIGHT` | `0.5` | Weight for head predictions |
-
-Example:
-```bash
-GAZER_SERVER_PORT=8080 GAZER_DEBUG=false python run.py
+│   ├── eyetracking.html    # ← Original file
+│   └── instructions.html   # ← Original file
+└── docs/
+    └── images/
 ```
 
 ---
@@ -215,42 +188,6 @@ Predictions are smoothed using position history averaging to reduce jitter.
 | Data Points per Calibration | 100 |
 | Supported Browsers | Chrome, Firefox, Safari, Edge |
 | Min Accuracy Threshold | 65% |
-
----
-
-## 🛠️ Development
-
-### Running Tests
-
-```bash
-# Install dev dependencies
-pip install -e ".[dev]"
-
-# Run tests
-pytest tests/ -v
-
-# With coverage
-pytest tests/ --cov=app --cov-report=html
-```
-
-### Code Quality
-
-```bash
-# Format code
-black app/ tests/
-
-# Lint
-flake8 app/ tests/
-
-# Type checking
-mypy app/
-```
-
----
-
-
-
-
 
 ## 🤝 Contributing
 
@@ -300,7 +237,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 **Tanmay Jain** - tanmay.jain260@gmail.com
 
-Project Link: [https://github.com/tanmayjain17/gazer](https://github.com/yourusername/gazer)
+Project Link: [https://github.com/tanmayjain17/gazer](https://github.com/tanmayjain17/gazer)
 
 ---
 

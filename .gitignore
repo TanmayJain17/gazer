@@ -79,13 +79,6 @@ logs/
 .DS_Store
 Thumbs.db
 
-# Project specific
-*.csv
-*.pkl
-*.joblib
-calibration_data/
-models/saved/
-
 # SSL certificates (if any)
 *.crt
 *.key

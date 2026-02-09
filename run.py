@@ -1,15 +1,14 @@
 #!/usr/bin/env python3
 """
-Quick start script for Gazer eye tracking application.
+Gazer - Eye Tracking Application
 
-Usage:
-    python run.py
-    
-Or with custom settings:
-    GAZER_SERVER_PORT=8080 python run.py
+Run with: python run.py
+Then open: http://localhost:3226
 """
 
-from app.main import main
+import app as gazer_app
 
 if __name__ == "__main__":
-    main()
+    print("Starting Gazer server...")
+    print("Open http://localhost:3226 in your browser")
+    gazer_app.socketio.run(gazer_app.app, host='0.0.0.0', port=3226, debug=True)
