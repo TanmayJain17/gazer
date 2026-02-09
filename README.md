@@ -133,8 +133,8 @@ python run.py
 
 ```
 gazer/
-├── app.py                  # ← New (your original logic, cleaned up)
-├── run.py                  # ← Updated
+├── app.py                  
+├── run.py                  
 ├── requirements.txt
 ├── README.md
 ├── LICENSE
@@ -144,10 +144,10 @@ gazer/
 │   │   ├── eyetracking.css
 │   │   └── style.css
 │   └── js/
-│       └── eyetracking.js  # ← Original file
+│       └── eyetracking.js  
 ├── templates/
-│   ├── eyetracking.html    # ← Original file
-│   └── instructions.html   # ← Original file
+│   ├── eyetracking.html    
+│   └── instructions.html   
 └── docs/
     └── images/
 ```
